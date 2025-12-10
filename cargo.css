@@ -1,0 +1,762 @@
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --text-dark: #2d3748;
+    --text-medium: #4a5568;
+    --text-light: #718096;
+    --bg-light: rgba(255, 255, 255, 0.95);
+    --border-color: #e2e8f0;
+    --shadow-light: 0 5px 15px rgba(0,0,0,0.05);
+    --shadow-medium: 0 8px 25px rgba(0,0,0,0.1);
+    --shadow-heavy: 0 10px 30px rgba(0,0,0,0.15);
+    --transition: all 0.3s ease;
+    --border-radius: 15px;
+    --blur-bg: blur(10px);
+}
+
+/* БАЗОВЫЕ СТИЛИ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: var(--primary-gradient);
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* =================== ТИПОГРАФИЯ =================== */
+h1, h2, h3 {
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+h1 {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* =================== ОБЩИЕ КОМПОНЕНТЫ =================== */
+.section, .accessories-catalog {
+    background: var(--bg-light);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-medium);
+    backdrop-filter: var(--blur-bg);
+}
+
+.btn {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 0.85rem 2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* =================== НАВИГАЦИЯ =================== */
+nav {
+    background: var(--bg-light);
+    backdrop-filter: var(--blur-bg);
+    color: var(--text-dark);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow-light);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    z-index: 101;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    transition: var(--transition);
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-medium);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+    background: rgba(102, 126, 234, 0.1);
+}
+
+/* Бургер меню */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 101;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.hero {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 0 0 30px 30px;
+    box-shadow: var(--shadow-heavy);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    color: white;
+    background: none;
+    -webkit-text-fill-color: white;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+/* =================== СПИСКИ =================== */
+.nested-list, .compact-list {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.nested-list ul, .nested-list ol,
+.compact-list ul {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.nested-list li, .compact-list li {
+    margin: 0.5rem 0;
+    padding: 0.3rem 0;
+}
+
+.compact-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.compact-list li {
+    margin: 5px 0;
+    padding: 3px 0;
+    color: var(--text-medium);
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.compact-list li:first-child {
+    font-weight: bold;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* =================== ГАЛЕРЕЯ =================== */
+.car-gallery {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.car-thumb {
+    width: 280px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+    border: 3px solid transparent;
+    box-shadow: var(--shadow-light);
+}
+
+.car-thumb:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-heavy);
+}
+
+/* =================== ТАБЛИЦЫ =================== */
+.table-container {
+    background: rgba(248, 249, 250, 0.7);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin: 1.5rem 0;
+    backdrop-filter: blur(5px);
+    overflow: visible;
+}
+
+/* Общие стили для всех таблиц */
+table, .responsive-table, .accessory-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+}
+
+table th, table td,
+.responsive-table th, .responsive-table td,
+.accessory-table th, .accessory-table td {
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    text-align: left;
+    vertical-align: top;
+}
+
+table th, .responsive-table th, .accessory-table th {
+    background: var(--primary-gradient);
+    color: white;
+    font-weight: 600;
+}
+
+table tr:nth-child(even),
+.responsive-table tr:nth-child(even),
+.accessory-table tr:nth-child(even) {
+    background-color: rgba(248, 249, 250, 0.8);
+}
+
+table tr:hover,
+.responsive-table tr:hover,
+.accessory-table tr:hover {
+    background-color: rgba(102, 126, 234, 0.05);
+}
+
+/* Специфичные стили для таблиц */
+.responsive-table th {
+    width: 30%;
+    min-width: 120px;
+}
+
+.responsive-table td {
+    background: white;
+    width: 70%;
+}
+
+.accessory-table td {
+    text-align: center;
+}
+
+/* =================== ФОРМЫ =================== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-medium);
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: white;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    outline: none;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.radio-group, .checkbox-group {
+    margin: 0.5rem 0;
+}
+
+/* =================== ВНУТРЕННЯЯ НАВИГАЦИЯ =================== */
+.internal-nav {
+    background: rgba(237, 242, 247, 0.8);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    backdrop-filter: blur(5px);
+}
+
+.internal-nav a {
+    color: var(--text-medium);
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    transition: var(--transition);
+    font-weight: 600;
+    background: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.internal-nav a:hover {
+    color: var(--primary-color);
+    background: rgba(102, 126, 234, 0.1);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-light);
+}
+
+/* =================== ПАСПОРТ =================== */
+.passport {
+    background: white;
+    border: 2px solid var(--border-color);
+    padding: 2rem;
+    margin: 2rem 0;
+    font-family: 'Courier New', monospace;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+}
+
+.passport-page {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #cbd5e0;
+}
+
+.passport-page:last-child {
+    border-bottom: none;
+}
+
+.dom-result, .result {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    border-left: 4px solid var(--primary-color);
+    border-radius: 10px;
+}
+
+.changed {
+    color: #e53e3e;
+    font-weight: bold;
+    background-color: #fed7d7;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+
+/* =================== СТРАНИЦЫ =================== */
+.page {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page.active {
+    display: block;
+}
+
+.vehicle-section {
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* =================== АВТОПАРК =================== */
+.car-main-image-container {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    max-height: 300px;
+}
+
+.car-main-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--transition);
+    display: block;
+}
+
+.car-main-image:hover {
+    transform: scale(1.05);
+}
+
+/* =================== КАТАЛОГ АКСЕССУАРОВ =================== */
+.accessories-catalog {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(247, 250, 252, 0.9) 100%);
+}
+
+.accessory-table th {
+    padding: 18px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.accessory-table td {
+    padding: 18px;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 500;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.quantity-btn {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+.quantity-btn:hover {
+    /* Убрано увеличение при наведении */
+    transform: none;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.quantity-btn.minus {
+    background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    box-shadow: 0 3px 10px rgba(229, 62, 62, 0.3);
+}
+
+.quantity-btn.minus:hover {
+    /* Убрано увеличение при наведении */
+    transform: none;
+    box-shadow: 0 5px 15px rgba(229, 62, 62, 0.4);
+}
+
+.total-section {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+
+
+/* =================== ФУТЕР =================== */
+footer {
+    background: rgba(45, 55, 72, 0.9);
+    color: white;
+    text-align: center;
+    padding: 3rem 0;
+    margin-top: 4rem;
+    backdrop-filter: var(--blur-bg);
+}
+
+/* =================== АДАПТИВНОСТЬ =================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .menu-toggle {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+    
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: var(--shadow-medium);
+        padding: 1rem 0;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+        z-index: 100;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0;
+        width: 100%;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 1rem 2rem;
+        border-radius: 0;
+        width: 100%;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .internal-nav {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .section, .accessories-catalog {
+        padding: 1.5rem;
+    }
+    
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .reviews-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Адаптивность для таблиц */
+    .responsive-table, table, .accessory-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .responsive-table thead {
+        display: none;
+    }
+    
+    .responsive-table tr,
+    table tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        overflow: hidden;
+        background: white;
+        box-shadow: var(--shadow-light);
+    }
+    
+    .responsive-table th, .responsive-table td,
+    table th, table td {
+        display: block;
+        width: 100%;
+        padding: 12px 15px;
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        text-align: left;
+    }
+    
+    .responsive-table th, table th {
+        background: var(--primary-gradient);
+        color: white;
+        font-weight: 600;
+        padding: 12px 15px;
+    }
+    
+    .responsive-table td, table td {
+        padding: 15px;
+    }
+    
+    .responsive-table tr:last-child th,
+    .responsive-table tr:last-child td,
+    table tr:last-child th,
+    table tr:last-child td {
+        border-bottom: none;
+    }
+    
+    /* Автопарк на мобильных */
+    .vehicle-section {
+        margin-bottom: 2rem;
+    }
+    
+    .car-main-image-container {
+        max-height: 200px;
+        border-radius: 10px;
+    }
+    
+    .car-main-image {
+        height: 200px;
+    }
+    
+    .nested-list, .compact-list {
+        padding-left: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .nested-list ul, .compact-list ul {
+        padding-left: 1rem;
+    }
+    
+    .compact-list li {
+        font-size: 0.9rem;
+        padding: 4px 0;
+    }
+    
+    /* Аксессуары на мобильных */
+    .accessory-table th, 
+    .accessory-table td {
+        padding: 12px 8px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero {
+        padding: 4rem 0;
+    }
+    
+    .vehicle-section h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .car-main-image-container {
+        max-height: 180px;
+    }
+    
+    .car-main-image {
+        height: 180px;
+    }
+    
+    .responsive-table th, .responsive-table td,
+    table th, table td {
+        padding: 10px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .compact-list li {
+        font-size: 0.85rem;
+        padding: 3px 0;
+    }
+    
+    .accessory-table {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .car-main-image-container {
+        max-height: 150px;
+    }
+    
+    .car-main-image {
+        height: 150px;
+    }
+    
+    .table-container {
+        padding: 15px 12px;
+    }
+    
+    .responsive-table th, .responsive-table td,
+    table th, table td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .compact-list li {
+        font-size: 0.8rem;
+    }
+}
